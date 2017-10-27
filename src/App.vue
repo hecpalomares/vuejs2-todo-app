@@ -1,17 +1,33 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+  <div>
+    <todo-list v-bind:todos="todos"></todo-list>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import TodoList from './components/TodoList';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    TodoList,
+  },
+  data() {
+    return {
+      todos: [{
+        title: 'Finish S-237234',
+        project: 'Project A',
+        done: false,
+      }, {
+        title: 'Talk with RH about dental care',
+        project: 'Project B',
+        done: true,
+      }, {
+        title: 'Finish tutorial on scotch.io',
+        project: 'Project C',
+        done: false,
+      }],
+    };
   },
 };
 </script>
