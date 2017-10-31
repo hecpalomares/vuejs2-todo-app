@@ -1,18 +1,22 @@
 <template>
-  <div>
+  <div id="app">
+    <h1 class="ui dividing centered header">Vue.js Todo App</h1>
     <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
     <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
     <todo-list v-bind:todos="todos"></todo-list>
+    <create-todo v-on:create-todo="createTodo"></create-todo>
   </div>
 </template>
 
 <script>
 import TodoList from './components/TodoList';
+import CreateTodo from './components/CreateTodo';
 
 export default {
   name: 'app',
   components: {
     TodoList,
+    CreateTodo,
   },
   data() {
     return {
@@ -30,6 +34,11 @@ export default {
         done: false,
       }],
     };
+  },
+  methods: {
+    createTodo(newTodo) {
+      this.todos.push(newTodo);
+    },
   },
 };
 </script>
