@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <h1 class="ui dividing centered header">Vue.js Todo App</h1>
-    <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
-    <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
     <todo-list v-bind:todos="todos"></todo-list>
     <create-todo v-on:create-todo="createTodo"></create-todo>
   </div>
